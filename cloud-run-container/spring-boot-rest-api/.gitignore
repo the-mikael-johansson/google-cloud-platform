@@ -1,0 +1,11 @@
+#
+# https://www.linkedin.com/in/the-mikael-johansson/
+#
+
+**/.DS_Store
+
+.idea/
+
+target/
+
+*.iml
