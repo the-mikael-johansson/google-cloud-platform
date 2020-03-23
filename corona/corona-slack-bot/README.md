@@ -13,3 +13,9 @@ GET {{baseUrl}}/corona-slack-bot/command?command=command&text=sweden
 
 Don't forget to update the config/credentials.js file with your
 Slack bot credentials.
+
+
+## Good reading
+
+- <https://api.slack.com/tutorials/tunneling-with-ngrok>
+
