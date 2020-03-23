@@ -8,6 +8,6 @@ deploy:
 	gcloud functions deploy corona-mirrorer \
 	--entry-point app \
 	--source src/ \
-	--runtime nodejs8 \
+	--runtime nodejs10 \
 	--trigger-http \
 	--allow-unauthenticated
