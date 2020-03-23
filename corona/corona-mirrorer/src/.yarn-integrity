@@ -1,0 +1,12 @@
+{
+  "systemParams": "darwin-x64-79",
+  "modulesFolders": [
+    "src"
+  ],
+  "flags": [],
+  "linkedModules": [],
+  "topLevelPatterns": [],
+  "lockfileEntries": {},
+  "files": [],
+  "artifacts": {}
+}

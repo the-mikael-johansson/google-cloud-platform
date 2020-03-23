@@ -1,0 +1,64 @@
+openapi: 3.0.1
+info:
+  title: OAS Tools Demo
+  description: >-
+    This API is made in order to demonstrate how to create backends by making
+    the API first using [oas-tools](https://www.npmjs.com/package/oas-tools).
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 0.1.0
+externalDocs:
+  description: Author on the LinkedIn
+  url: 'https://www.linkedin.com/in/the-mikael-johansson/'
+servers:
+  - url: 'https://localhost:8080'
+  - url: 'http://localhost:8080'
+tags:
+  - name: general
+    description: General API endpoints
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+paths:
+  /hopkins:
+    get:
+      x-router-controller: coronaController
+      operationId: getHopkins
+      tags:
+        - general
+      summary: Get Hopkins Corona data
+      description: Gets CSV data and saves it locally
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Corona'
+        '400':
+          description: Invalid status value
+          content: {}
+components:
+  schemas:
+    Corona:
+      type: object
+      properties:
+        confirmed:
+          type: object
+        deaths:
+          type: object
+        recovered:
+          type: object
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string

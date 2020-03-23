@@ -1,0 +1,92 @@
+openapi: 3.0.1
+info:
+  title: Corona Source API
+  description: This API provides Corona statistics for countries world wide.
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 0.1.0
+externalDocs:
+  description: Author on the LinkedIn
+  url: 'https://www.linkedin.com/in/the-mikael-johansson/'
+servers:
+  - url: 'http://localhost:8080'
+tags:
+  - name: general
+    description: General API endpoints
+paths:
+  /coronas:
+    get:
+      x-router-controller: coronaController
+      operationId: getCoronas
+      tags:
+        - general
+      summary: Get corona stats
+      description: Gets all covid-19 stats
+      parameters:
+        - in: query
+          name: country
+          schema:
+            type: string
+          required: true
+          description: Optional country (e.g. sweden)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Corona'
+        '400':
+          description: Invalid status value
+          content: {}
+  /coronas/summary:
+    get:
+      x-router-controller: coronaController
+      operationId: getCoronasSummary
+      tags:
+        - general
+      summary: Get corona stats summary
+      description: Gets all covid-19 stats summary
+      parameters:
+        - in: query
+          name: country
+          schema:
+            type: string
+          required: true
+          description: Optional country (e.g. sweden)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Corona'
+        '400':
+          description: Invalid status value
+          content: {}
+components:
+  schemas:
+    Corona:
+      type: object
+      properties:
+        confirmed:
+          type: object
+        deaths:
+          type: object
+        recovered:
+          type: object
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
