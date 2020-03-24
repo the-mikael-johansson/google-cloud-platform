@@ -12,7 +12,7 @@ Contains the following services:
 
 ## Known issues
 
-Both corona-source and corona-slack-bot are deployed as cloud functions and have very often cold boots that exceeds Slack's limit of 3 seconds. A permanent service without cold boots would solve the issue. Currently the requests takes 1,5 s - 11 s.
+Both corona-source and corona-slack-bot are deployed as cloud functions and have very often [Cold Starts](https://mikhail.io/serverless/coldstarts/gcp/) that exceeds Slack's limit of 3 seconds. A service that doesn't scale down to zero would solve the issue. Currently the requests takes 1,5 s - 11 s. A dirty hack is to set Cloud Schedulerer to periodically triggers the services in order to keep them warm.
 
 ## Build and deploy
 
