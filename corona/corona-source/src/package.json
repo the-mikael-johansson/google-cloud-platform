@@ -18,7 +18,7 @@
     "js-yaml": "^3.13.1",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2",
-    "oas-tools": "^2.1.7"
+    "oas-tools": "^2.2.2"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
